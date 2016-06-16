@@ -1,3 +1,5 @@
+package peakelement;
+
 import java.util.NoSuchElementException;
 
 public class InflectionPoint {
