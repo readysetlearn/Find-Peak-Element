@@ -1,5 +1,3 @@
-package peakelement;
-
 import java.util.NoSuchElementException;
 
 public class InflectionPoint {
@@ -20,7 +18,7 @@ public class InflectionPoint {
 	public static void main(String[] args) {
 		System.out.println("Program running");
 		
-		int[] sample = {5, 6, 10, 8, 1};
+		int[] sample = {1, 2, 3, 2, 1};
 		System.out.println("index: "+findIndex(sample));
 		
 		
