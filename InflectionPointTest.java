@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
 import junit.framework.JUnit4TestAdapter;
+import java.util.NoSuchElementException;
 
 public class InflectionPointTest {
 	
@@ -45,6 +45,42 @@ public class InflectionPointTest {
 	public void atFront() {
 		System.out.println("findIndex");
 		int[] sample = {1,2,1,0,-1};
+		int result = InflectionPoint.findIndex(sample);
+		assertEquals(2, result);
+		
+	}
+	
+	@Test (expected = NoSuchElementException.class)
+	public void noInflectionPoint() {
+		System.out.println("findIndex");
+		int[] sample = {1,2,3};
+		int result = InflectionPoint.findIndex(sample);
+		assertEquals(2, result);
+		
+	}
+	
+	@Test (expected = NoSuchElementException.class)
+	public void emptyArray() {
+		System.out.println("findIndex");
+		int[] sample = {};
+		int result = InflectionPoint.findIndex(sample);
+		assertEquals(2, result);
+		
+	}
+	
+	@Test (expected = NoSuchElementException.class)
+	public void arrayOfOne() {
+		System.out.println("findIndex");
+		int[] sample = {5};
+		int result = InflectionPoint.findIndex(sample);
+		assertEquals(2, result);
+		
+	}
+	
+	@Test (expected = NoSuchElementException.class)
+	public void arrayOfTwo() {
+		System.out.println("findIndex");
+		int[] sample = {4, 6};
 		int result = InflectionPoint.findIndex(sample);
 		assertEquals(2, result);
 		
