@@ -10,6 +10,7 @@ public class InflectionPoint {
 			throw new NoSuchElementException("array is too short");
 		}
 		
+		
 		//skip first 2 elements as they are in increasing order
 		for(int i = 2; i < arr.length; i++) {
 			if(arr[i] < arr[i-1]) {
@@ -17,13 +18,13 @@ public class InflectionPoint {
 			}
 		}
 		
-		throw new NoSuchElementException("no such element");
+		throw new NoSuchElementException("sequence is always increasing");
 	}
 	
 	public static void main(String[] args) {
 		System.out.println("Program running");
 		
-		int[] sample = {};
+		int[] sample = {1,2,3,1,0};
 		System.out.println("index: "+findIndex(sample));
 		
 		
