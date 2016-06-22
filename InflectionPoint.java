@@ -21,11 +21,18 @@ public class InflectionPoint {
 		throw new NoSuchElementException("sequence is always increasing");
 	}
 	
+	/*return true if and only if arr has an inflection point*/
+	public static boolean hasInflectionPoint(int[] arr) {
+		
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("Program running");
 		
 		int[] sample = {1,2,3,1,0};
-		System.out.println("index: "+findIndex(sample));
+		if(hasInflectionPoint(sample)) {
+			System.out.println("index: "+findIndex(sample));
+		}
 		
 		
 		System.out.println("Program finished");
