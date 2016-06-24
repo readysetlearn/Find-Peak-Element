@@ -1,5 +1,5 @@
 import java.util.NoSuchElementException;
-import java.util.IllegalArgumentException;
+import java.lang.IllegalArgumentException;
 
 public class InflectionPoint {
 	
@@ -7,7 +7,7 @@ public class InflectionPoint {
 	**CONDITION: array must have at least three elements
 	**RETURN: index of element that is less than the previous element*/
 	public static int findIndex(int[] arr) {
-		findIndex(arr, 'i');
+		return findIndex(arr, 'i');
 	}
 	
 	/*INPUT: array of integers, initially monotonically increasing, then monotonically decreasing
@@ -33,8 +33,9 @@ public class InflectionPoint {
 				}
 			}			
 		} else {
-			throw new IllegalAccessException("invalid parameter given");
+			throw new IllegalArgumentException("invalid parameter given");
 		}
+		return -1;//this should never happen
 	}
 	
 	/*return true if and only if arr has (exactly) inflection point*/
@@ -63,16 +64,16 @@ public class InflectionPoint {
 		}
 		
 		char direction = initialDirection(arr);
-		int changeIndex = findIndex(arr, i);
+		int changeIndex = findIndex(arr, direction);
 		//must check to see if changeIndex was only "inclfection point"
 		//e.g. may be several if just a bunch of random numbers
 		for(int i = changeIndex + 1; i < arr.length; i++) {
 			if(direction == 'i') {
 				if(arr[i] > arr[i-1])
-					return false
+					return false;
 			} else if(direction == 'd') {
 				if(arr[i] < arr[i-1])
-					return false
+					return false;
 			}
 		}
 		
@@ -92,6 +93,7 @@ public class InflectionPoint {
 					return 'd';//array elements are initially decreasing
 			}
 		}
+		return 'f';//return 'f' for failure; this should never happen
 	}
 	
 	public static void main(String[] args) {
