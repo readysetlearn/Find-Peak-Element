@@ -50,6 +50,25 @@ public class InflectionPointTest {
 		
 	}
 	
+	
+	@Test
+	public void decreasingShort() {
+		System.out.println("findIndex");
+		int[] sample = {3,2,3};
+		int result = InflectionPoint.findIndex(sample, 'd');
+		assertEquals(2, result);
+		
+	}
+	
+	@Test
+	public void decreasingLong() {
+		System.out.println("findIndex");
+		int[] sample = {-1, 0, 1, 2, 3};
+		int result = InflectionPoint.findIndex(sample, 'd');
+		assertEquals(2, result);
+		
+	}
+	
 	@Test (expected = NoSuchElementException.class)
 	public void noInflectionPoint() {
 		System.out.println("findIndex");

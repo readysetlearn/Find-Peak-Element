@@ -46,7 +46,8 @@ public class InflectionPoint {
 		
 		//check if sequence is always increasing
 		int previous = arr[0];
-		boolean increasing = true;//assume array is always increasing until proven false
+		boolean increasing, decreasing;
+		increasing = true;//assume array is always increasing until proven false
 		for(int i = 1; i < arr.length; i++) {
 			if(arr[i] < previous) {
 				increasing = false;
@@ -57,10 +58,12 @@ public class InflectionPoint {
 		}
 		
 		//check if sequence is always decreasing
-		boolean decreasing = true;//assume array is always decreasing until proven false
+		decreasing = true;//assume array is always decreasing until proven false
+		previous = arr[0];
 		for(int i = 1; i < arr.length; i++) {
 			if(arr[i] > previous) {
 				decreasing = false;
+				System.out.println("problem: "+arr[i]);
 				break;
 			}
 			
@@ -108,7 +111,7 @@ public class InflectionPoint {
 	public static void main(String[] args) {
 		System.out.println("Program running");
 		
-		int[] sample = {0,1,2,2,0,-10};
+		int[] sample = {3,2,4};
 		if(hasInflectionPoint(sample)) {//something's not working in hasInflectionPoint()
 			System.out.println("index: "+findIndex(sample));
 		}
