@@ -63,7 +63,6 @@ public class InflectionPoint {
 		for(int i = 1; i < arr.length; i++) {
 			if(arr[i] > previous) {
 				decreasing = false;
-				System.out.println("problem: "+arr[i]);
 				break;
 			}
 			

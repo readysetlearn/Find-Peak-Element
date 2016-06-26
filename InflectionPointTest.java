@@ -5,6 +5,7 @@ import java.util.NoSuchElementException;
 
 public class InflectionPointTest {
 	
+	/*tests for findIndex()*/
 	@Test
 	public void basicTest() {
 		System.out.println("findIndex");
@@ -104,6 +105,88 @@ public class InflectionPointTest {
 		assertEquals(2, result);
 		
 	}
+	
+	/*tests for hasInflectionPoint()*/
+	@Test
+	public void doesHaveInfPoint_initIncreasing() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {1,2,3,2,1};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(true, result);
+	}
+
+	@Test	
+	public void doesHaveInfPoint_initDecreasing() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {3,2,1,2,3};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(true, result);
+	}
+	
+	@Test
+	public void doesHaveInfPointShort_initIncreasing() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {1,2,1};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(true, result);
+	}
+	
+	@Test
+	public void doesHaveInfPointShort_initDecreasing() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {2,1,2};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(true, result);
+	}
+	
+	@Test
+	public void doesNotHaveInfPoint() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {1,2,0,5,6,1,0};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void alwaysIncreasing() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {5,10,15,20};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void alwaysDecreasing() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {10,9,8,7,6};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void notEnoughElementsIncreasing() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {1,2};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void notEnoughElementsDecreasing() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {2,1};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void noElements() {
+		System.out.println("hasInflectionPoint");
+		int[] sample = {};
+		boolean result = InflectionPoint.hasInflectionPoint(sample);
+		assertEquals(false, result);
+	}
+	
 	
 	public static void main(String[] args) {
 		junit.textui.TestRunner.run( new JUnit4TestAdapter(InflectionPointTest.class) );
